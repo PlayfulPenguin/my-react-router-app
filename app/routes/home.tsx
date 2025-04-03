@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import { gb } from "../Guestbook/guestbook";
+import { Welcome } from "~/welcome/welcome";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "you suck" },
@@ -8,5 +8,5 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return < gb />;
+  return < Welcome />;
 }
