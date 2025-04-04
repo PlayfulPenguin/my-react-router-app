@@ -3,7 +3,7 @@ import { Link } from "react-router";
 export default function Nav() {
     return (
     <div className= "Nav">
-        <Link to="/" className="title"> Home </Link>
+        <Link to="/"> Home </Link>
         <ul>
             <li>
                 <Link to = "/about">About</Link>

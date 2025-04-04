@@ -38,6 +38,7 @@
   color: white;
   text-align: center;
   font-size: 24px;
+  position: relative;
 
 }
 
@@ -53,6 +54,21 @@
   text-align: center;
   color: white;
   font-size: 48px;
+  left: 30%;
+  position: relative;
+  width: max-content;
+}
+.title::after{
+  content: "";
+  background-color: currentColor;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  border-radius: 10px;
+
+
 }
 
 .not-a-button{
@@ -65,7 +81,23 @@
   border-radius: 10px;
   border: none;
   mix-blend-mode:screen;
-  
+  position: relative;
+
+}
+.not-a-button::after{
+  content: "";
+  position: absolute;
+  width: 0%;
+  background-color: #5e42d14d;
+   transition: 100ms;
+}
+.not-a-button:hover::after{
+  width: 100%;
+
+}
+.not-a-button:hover{
+  background-color: #5e42d14d;
+  color: rgb(0, 0, 0);
 }
 .prompt{
   color: white;

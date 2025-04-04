@@ -5,6 +5,21 @@ import { Link } from "react-router"
 const Sign=()=>{
     const[name, setName] = useState('')
     const[message, setM] = useState('')
+    const[mesList, setMessList] =  useState<string[]>([]);
+
+    const submit =()=>{
+        setMessList([...mesList,message])
+        setName('')
+        setM('')
+        console.log(mesList)
+    }
+    const deleteMes =()=>{
+        mesList.pop()
+        const element = document.getElementById("message")
+        element.remove()
+        console.log(mesList)
+    }
+
 
     return(
         <div className="space">
@@ -31,12 +46,37 @@ const Sign=()=>{
         </div>
 
         <div>
-            <div className="title"> Does this message look right {name}?</div>
+            <div> Does this message look right {name}?</div>
             <p className="info">
                 {message}
             </p>
-            <button className="not-a-button"> Looks Good!
+            <button className="not-a-button" onClick={submit}> Looks Good!
             </button>
+            <div>
+                {
+                    mesList.length ==0
+                    ?
+                    <p className= "info">
+                    no one has signed the guestbook yet...
+                    </p>
+                    :
+                    <table>
+                        <th>
+                        </th>
+                        <tbody>
+                            {
+                                mesList.map((m)=>(
+                                    <tr id="message">
+                                        <td>{m}</td>
+                                        <button className="get-outta-here-but"
+                                        onClick={deleteMes}>x</button>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
             </div>
         </div>
     )
