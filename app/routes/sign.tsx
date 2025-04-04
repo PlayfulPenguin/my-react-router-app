@@ -5,19 +5,17 @@ import { Link } from "react-router"
 const Sign=()=>{
     const[name, setName] = useState('')
     const[message, setM] = useState('')
-    const[mesList, setMessList] =  useState<string[]>([]);
+    const[mesList, setMessList] =  useState<Array[]>([]);
 
     const submit =()=>{
-        setMessList([...mesList,message])
+        setMessList([...mesList,[name,message]])
         setName('')
         setM('')
-        console.log(mesList)
     }
     const deleteMes =()=>{
         mesList.pop()
         const element = document.getElementById("message")
         element.remove()
-        console.log(mesList)
     }
 
 
@@ -54,7 +52,7 @@ const Sign=()=>{
             </button>
             <div>
                 {
-                    mesList.length ==0
+                    mesList.length == 0
                     ?
                     <p className= "info">
                     no one has signed the guestbook yet...
@@ -67,7 +65,7 @@ const Sign=()=>{
                             {
                                 mesList.map((m)=>(
                                     <tr id="message">
-                                        <td>{m}</td>
+                                        <td>{m[0]} says: {m[1]}</td>
                                         <button className="get-outta-here-but"
                                         onClick={deleteMes}>x</button>
                                     </tr>
