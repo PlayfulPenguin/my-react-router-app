@@ -5,7 +5,7 @@ import { Link } from "react-router"
 const Sign=()=>{
     const[name, setName] = useState('')
     const[message, setM] = useState('')
-    const[mesList, setMessList] =  useState<Array[]>([]);
+    const[mesList, setMessList] =  useState<Array[""]>([]);
 
     const submit =()=>{
         setMessList([...mesList,[name,message]])
@@ -63,7 +63,7 @@ const Sign=()=>{
                         </th>
                         <tbody>
                             {
-                                mesList.map((m)=>(
+                                mesList.map((m:string)=>(
                                     <tr id="message">
                                         <td>{m[0]} says: {m[1]}</td>
                                         <button className="get-outta-here-but"
